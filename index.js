@@ -3,9 +3,6 @@ let input = document.querySelector(".inp");
 let container = document.querySelector(".container");
 let isResset = false;
 body.addEventListener("click", e => {
-  console.log("click", e);
-  console.dir(input);
-
   if (e.target.classList.contains("button_gen")) {
     if (isResset) {
       isResset = false;
@@ -34,6 +31,7 @@ function addList(count) {
     alert("Введите число от 0 до 20!");
     return;
   } else {
+    const fragment = document.createDocumentFragment();
     for (let n = 1; n <= count; n++) {
       let buttonPlus = document.createElement("button");
       buttonPlus.classList.add("plus");
@@ -41,8 +39,9 @@ function addList(count) {
       let buttonMinus = document.createElement("button");
       buttonMinus.classList.add("minus");
       buttonMinus.innerText = `-${n}`;
-      container.appendChild(buttonPlus);
-      container.appendChild(buttonMinus);
+      fragment.appendChild(buttonPlus);
+      fragment.appendChild(buttonMinus);
     }
+    document.querySelector(".container").appendChild(fragment);
   }
 }
