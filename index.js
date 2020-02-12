@@ -11,7 +11,7 @@ body.addEventListener("click", e => {
       input.disabled = false;
       container.innerHTML = "";
     } else {
-      e.target.innerText = "Resset";
+      e.target.innerText = "Reset";
       isResset = true;
       addList(input.value);
       input.value = 0;
